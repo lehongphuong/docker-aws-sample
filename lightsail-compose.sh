@@ -14,12 +14,15 @@ chmod +x /usr/local/bin/docker-compose
 # if you change this, change the systemd service file to match
 # WorkingDirectory=[whatever you have below]
 mkdir /srv/docker
-curl -o /srv/docker/docker-compose.yml https://github.com/lehongphuong/docker-aws-sample/blob/master/docker-compose.yml
+curl -o /srv/docker/docker-compose.yml https://raw.githubusercontent.com/lehongphuong/docker-aws-sample/master/docker-compose.yml
 
 # copy in systemd unit file and register it so our compose file runs 
 # on system restart
-curl -o /etc/systemd/system/docker-compose-app.service https://github.com/lehongphuong/docker-aws-sample/blob/master/docker-compose-app.service
+curl -o /etc/systemd/system/docker-compose-app.service https://raw.githubusercontent.com/lehongphuong/docker-aws-sample/master/docker-compose-app.service
 systemctl enable docker-compose-app
 
 # start up the application via docker-compose
-docker-compose -f /srv/docker/docker-compose.yml up -d
+sudo docker-compose -f /srv/docker/docker-compose.yml build
+sudo docker-compose run web python /code/manage.py makemigrations
+sudo docker-compose run web python /code/manage.py migrate
+sudo docker-compose -f /srv/docker/docker-compose.yml up -d

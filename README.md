@@ -13,10 +13,20 @@ I am trying to create a Tutorial on How yo Create CRM or Contact Management Syst
 
 
 ### Setup with docker
-1. Build Image and Container: `docker-compose build`
-2. Migration database: `docker-compose run web python /code/manage.py migration`
-3. Create supseruser: `docker-compose run web python /code/manage.py createsupperuser`
-4. Run application with attach log: `docker-compose up`
-5. Run application with no attach: `docker-compose up -d`
-6. Run application with no attach and build: `docker-compose up -d --build`
+1. Build Image and Container: `sudo docker-compose build`
+2. Migration database: `sudo docker-compose run web python /code/manage.py makemigrations`
+2. Migration database: `sudo docker-compose run web python /code/manage.py migrate`
+3. Create supseruser: `sudo docker-compose run web python /code/manage.py createsupperuser`
+4. Run application with attach log: `sudo docker-compose up`
+5. Run application with no attach: `sudo docker-compose up -d`
+6. Run application with no attach and build: `sudo docker-compose up -d --build`
 
+
+### aws
+curl -o lightsail-compose.sh https://raw.githubusercontent.com/mikegcoleman/todo/master/lightsail-compose.sh
+
+curl -o lightsail-compose.sh https://raw.githubusercontent.com/lehongphuong/docker-aws-sample/master/lightsail-compose.sh
+
+chmod +x ./lightsail-compose.sh
+
+./lightsail-compose.sh
