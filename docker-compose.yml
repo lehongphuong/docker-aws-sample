@@ -3,6 +3,8 @@ version: '3'
 services:
   db:
     image: postgres 
+    networks:
+      - todo_net
     ports:
       - "5432:5432"
   web:
@@ -12,5 +14,10 @@ services:
       - .:/code
     ports:
       - "8000:8000"
+    networks:
+      - todo_net
     depends_on:
       - db
+
+networks:
+  todo_net:

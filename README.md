@@ -25,8 +25,8 @@ I am trying to create a Tutorial on How yo Create CRM or Contact Management Syst
 ### aws
 curl -o lightsail-compose.sh https://raw.githubusercontent.com/mikegcoleman/todo/master/lightsail-compose.sh
 
-curl -o lightsail-compose.sh https://raw.githubusercontent.com/lehongphuong/docker-aws-sample/master/lightsail-compose.sh
+sudo curl -o lightsail-compose.sh https://raw.githubusercontent.com/lehongphuong/docker-aws-sample/master/lightsail-compose.sh
 
-chmod +x ./lightsail-compose.sh
+sudo chmod +x ./lightsail-compose.sh
 
-./lightsail-compose.sh
+sudo ./lightsail-compose.sh
