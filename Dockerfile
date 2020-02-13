@@ -5,3 +5,7 @@ WORKDIR /code
 COPY requirements.txt /code/
 RUN pip install -r requirements.txt
 COPY . /code/
+
+ENV LISTEN_PORT=8080
+
+EXPOSE 8080
