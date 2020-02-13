@@ -1,3 +1,4 @@
+Chạy lệnh này để nó tự động chạy
 curl -o ./lightsail.sh https://raw.githubusercontent.com/lehongphuong/docker-aws-sample/master/lightsail-compose.sh
 
 chmod +x /lightsail.sh
