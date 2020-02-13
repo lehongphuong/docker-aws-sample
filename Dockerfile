@@ -4,8 +4,6 @@ RUN mkdir /code
 WORKDIR /code
 COPY requirements.txt /code/
 RUN pip install -r requirements.txt
-ADD nginx.conf /etc/nginx/
-ADD run.sh /run.sh
 COPY . /code/
 
 EXPOSE 80
