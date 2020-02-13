@@ -6,6 +6,6 @@ COPY requirements.txt /code/
 RUN pip install -r requirements.txt
 COPY . /code/
 
-ENV LISTEN_PORT=8080
+ENV LISTEN_PORT=80
 
-EXPOSE 8080
+EXPOSE 80
