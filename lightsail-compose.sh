@@ -1,4 +1,6 @@
 #!/bin/bash
+# git clone project clone
+sudo git clone https://github.com/lehongphuong/docker-aws-sample.git /myproject
 
 # install latest version of docker the lazy way
 sudo curl -sSL https://get.docker.com | sh
@@ -10,19 +12,13 @@ sudo usermod -aG docker ubuntu
 sudo curl -L https://github.com/docker/compose/releases/download/1.21.2/docker-compose-$(uname -s)-$(uname -m) -o /usr/local/bin/docker-compose
 sudo chmod +x /usr/local/bin/docker-compose
 
-# copy the dockerfile into /srv/docker 
-# if you change this, change the systemd service file to match
-# WorkingDirectory=[whatever you have below]
-sudo mkdir /srv/docker
-sudo curl -o /srv/docker/docker-compose.yml https://raw.githubusercontent.com/lehongphuong/docker-aws-sample/master/docker-compose.yml
-
-# copy in systemd unit file and register it so our compose file runs 
 # on system restart
 sudo curl -o /etc/systemd/system/docker-compose-app.service https://raw.githubusercontent.com/lehongphuong/docker-aws-sample/master/docker-compose-app.service
 sudo systemctl enable docker-compose-app
 
 # start up the application via docker-compose
-sudo docker-compose -f /srv/docker/docker-compose.yml build
+cd /myproject
+sudo docker-compose build
 sudo docker-compose run web python /code/manage.py makemigrations
 sudo docker-compose run web python /code/manage.py migrate
-sudo docker-compose -f /srv/docker/docker-compose.yml up -d
+sudo docker-compose up -d
