@@ -30,3 +30,14 @@ sudo curl -o lightsail-compose.sh https://raw.githubusercontent.com/lehongphuong
 sudo chmod +x ./lightsail-compose.sh
 
 sudo ./lightsail-compose.sh
+
+
+# dj_database_url==0.5.0    
+# gunicorn==19.9.0
+# psycopg2==2.8.3 
+# whitenoise==4.1.2
+# djangorestframework==3.9.4
+# django-cors-headers==3.0.2
+# django-jet==1.0.8
+# postgres==2.2.2
+# django-import-export
