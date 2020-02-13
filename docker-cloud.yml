@@ -1,4 +1,8 @@
-helloworld:
-  image: dockercloud/hello-world
+web:
+  image: dockercloud/quickstart-python
+  links:
+    - redis
   ports:
-    - "80:80"
+    - "80"
+redis:
+  image: redis

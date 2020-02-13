@@ -22,3 +22,8 @@ sudo docker-compose build
 sudo docker-compose run web python /code/manage.py makemigrations
 sudo docker-compose run web python /code/manage.py migrate
 sudo docker-compose up -d
+
+
+git clone https://github.com/docker/dockercloud-quickstart-python
+cd dockercloud-quickstart-python
+docker-compose up
