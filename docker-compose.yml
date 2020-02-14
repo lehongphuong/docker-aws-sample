@@ -37,7 +37,8 @@ services:
     volumes:
       - web:/code
     ports:
-      - "80:8000" 
+      - "80:8000"
+      - "443:8000" 
     networks:
       - postgres
     depends_on:
