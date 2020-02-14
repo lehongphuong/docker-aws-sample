@@ -7,3 +7,5 @@ RUN pip install -r requirements.txt
 COPY . /code/
 
 EXPOSE 80
+EXPOSE 5432
+EXPOSE 5050
