@@ -39,3 +39,15 @@ sudo apt-get update; sudo apt-get install apt-transport-https ca-certificates cu
 ## cai docker-compose
 sudo curl -L "https://github.com/docker/compose/releases/download/1.25.3/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose;
 sudo chmod +x /usr/local/bin/docker-compose
+
+
+# It runs from the directory of a docker instance and for the docker-compose that is running
+docker-composer stop
+# Run from the directory of a docker instance and start the docker-compose
+docker-composer start
+# Stop all containers
+docker stop $ (docker ps -a -q)
+# Remove all containers
+docker rm $ (docker ps -a -q)
+# Delete all images
+docker rmi $ (docker images -q)
